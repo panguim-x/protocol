@@ -2,7 +2,7 @@ syntax = "proto3";
 package PanguIMServer.conversation;
 import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
-option go_package = "protocol/conversation";
+option go_package = "github.com/panguim-x/protocol/conversation";
 
 message Conversation{
   string ownerUserID = 1;

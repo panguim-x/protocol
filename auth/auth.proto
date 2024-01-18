@@ -1,6 +1,6 @@
 syntax = "proto3";
 package PanguIMServer.auth;
-option go_package = "protocol/auth";
+option go_package = "github.com/panguim-x/protocol/auth";
 
 
 message userTokenReq {

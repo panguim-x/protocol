@@ -1,7 +1,7 @@
 syntax = "proto3";
 package PanguIMServer.push;
 import "sdkws/sdkws.proto";
-option go_package = "protocol/push";
+option go_package = "github.com/panguim-x/protocol/push";
 
 message PushMsgReq {
   sdkws.MsgData msgData = 1;

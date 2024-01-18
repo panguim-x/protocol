@@ -7,9 +7,9 @@
 package push
 
 import (
+	sdkws "github.com/panguim-x/protocol/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	sdkws "protocol/sdkws"
 	reflect "reflect"
 	sync "sync"
 )

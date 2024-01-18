@@ -1,4 +1,4 @@
 syntax = "proto3";
 package PanguIMServer.statistics;
-option go_package = "protocol/statistics";
+option go_package = "github.com/panguim-x/protocol/statistics";
 

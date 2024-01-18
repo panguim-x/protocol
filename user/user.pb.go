@@ -7,11 +7,11 @@
 package user
 
 import (
+	conversation "github.com/panguim-x/protocol/conversation"
+	sdkws "github.com/panguim-x/protocol/sdkws"
+	wrapperspb "github.com/panguim-x/protocol/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	conversation "protocol/conversation"
-	sdkws "protocol/sdkws"
-	wrapperspb "protocol/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )

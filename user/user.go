@@ -2,7 +2,7 @@ package user
 
 import (
 	"errors"
-	"protocol/constant"
+	"github.com/panguim-x/protocol/constant"
 )
 
 func (x *GetAllUserIDReq) Check() error {

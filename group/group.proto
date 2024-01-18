@@ -2,7 +2,7 @@ syntax = "proto3";
 package PanguIMServer.group;
 import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
-option go_package = "protocol/group";
+option go_package = "github.com/panguim-x/protocol/group";
 
 
 

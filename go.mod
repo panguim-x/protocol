@@ -1,4 +1,4 @@
-module protocol // protocol
+module github.com/panguim-x/github.com/panguim-x/protocol // github.com/panguim-x/protocol
 
 go 1.18
 

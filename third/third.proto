@@ -1,7 +1,7 @@
 syntax = "proto3";
 package PanguIMServer.third;
 import "sdkws/sdkws.proto";
-option go_package = "protocol/third";
+option go_package = "github.com/panguim-x/protocol/third";
 
 message KeyValues {
   string key = 1;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package PanguIMServer.protobuf;
 
-option go_package = "protocol/errinfo";
+option go_package = "github.com/panguim-x/protocol/errinfo";
 
 message ErrorInfo {
   string path = 1;

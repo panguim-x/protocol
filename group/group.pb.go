@@ -7,10 +7,10 @@
 package group
 
 import (
+	sdkws "github.com/panguim-x/protocol/sdkws"
+	wrapperspb "github.com/panguim-x/protocol/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	sdkws "protocol/sdkws"
-	wrapperspb "protocol/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )

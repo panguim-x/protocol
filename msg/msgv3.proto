@@ -2,7 +2,7 @@ syntax = "proto3";
 package PanguIMServer.msg;
 import "sdkws/sdkws.proto";
 // import "wrapperspb/wrapperspb.proto";
-option go_package = "protocol/msg";
+option go_package = "github.com/panguim-x/protocol/msg";
 
 message MsgDataToMQ{
   string token = 1;

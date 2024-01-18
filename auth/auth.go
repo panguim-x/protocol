@@ -2,7 +2,7 @@ package auth
 
 import (
 	"errors"
-	"protocol/constant"
+	"github.com/panguim-x/protocol/constant"
 )
 
 func (x *UserTokenReq) Check() error {

@@ -2,7 +2,7 @@ syntax = "proto3";
 package PanguIMServer.rtc;
 import "sdkws/sdkws.proto";
 //import "wrapperspb/wrapperspb.proto";
-option go_package = "protocol/rtc";
+option go_package = "github.com/panguim-x/protocol/rtc";
 
 message ParticipantMetaData{
   PanguIMServer.sdkws.GroupInfo groupInfo = 1;

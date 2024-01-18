@@ -2,7 +2,7 @@ package third
 
 import (
 	"errors"
-	"protocol/constant"
+	"github.com/panguim-x/protocol/constant"
 )
 
 func (x *FcmUpdateTokenReq) Check() error {

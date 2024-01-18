@@ -2,7 +2,7 @@ syntax = "proto3";
 package PanguIMServer.friend;
 import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
-option go_package = "protocol/friend";
+option go_package = "github.com/panguim-x/protocol/friend";
 
 message getPaginationFriendsReq{
   sdkws.RequestPagination pagination = 1;
