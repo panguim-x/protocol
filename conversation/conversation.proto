@@ -1,0 +1,213 @@
+syntax = "proto3";
+package PanguIMServer.conversation;
+import "sdkws/sdkws.proto";
+import "wrapperspb/wrapperspb.proto";
+option go_package = "protocol/conversation";
+
+message Conversation{
+  string ownerUserID = 1;
+  string conversationID = 2;
+  int32 recvMsgOpt = 3;
+  int32 conversationType = 4;
+  string userID = 5;
+  string groupID = 6;
+  bool isPinned = 7;
+  string attachedInfo = 8;
+  bool isPrivateChat = 9;
+  int32 groupAtType = 10;
+  string ex = 11;
+  int32 burnDuration = 12;
+  int64 minSeq = 13;
+  int64 maxSeq = 14;
+  int64 msgDestructTime = 15;
+  int64 latestMsgDestructTime = 16;
+  bool isMsgDestruct = 17;
+}
+
+message ConversationReq{
+  string conversationID = 1;
+  int32 conversationType = 2;
+  string userID = 3;
+  string groupID = 4;
+  PanguIMServer.protobuf.Int32Value recvMsgOpt = 5;
+  PanguIMServer.protobuf.BoolValue isPinned = 6;
+  PanguIMServer.protobuf.StringValue attachedInfo = 7;
+  PanguIMServer.protobuf.BoolValue isPrivateChat = 8;
+  PanguIMServer.protobuf.StringValue ex = 9;
+  PanguIMServer.protobuf.Int32Value burnDuration = 10;
+  PanguIMServer.protobuf.Int64Value minSeq = 11;
+  PanguIMServer.protobuf.Int64Value maxSeq = 12;
+  PanguIMServer.protobuf.Int32Value groupAtType = 13;
+  PanguIMServer.protobuf.Int64Value msgDestructTime = 14;
+  PanguIMServer.protobuf.BoolValue isMsgDestruct = 15;
+}
+
+message SetConversationReq{
+  Conversation conversation = 1;
+}
+
+message SetConversationResp{
+}
+
+message GetConversationReq{
+  string conversationID = 1;
+  string ownerUserID = 2;
+}
+
+message GetConversationResp{
+  Conversation conversation = 2;
+}
+
+message GetSortedConversationListReq{
+  string userID = 1;
+  repeated string conversationIDs = 2;
+  sdkws.RequestPagination pagination = 3;
+}
+
+message GetSortedConversationListResp{
+  int64 conversationTotal=1;
+  int64 unreadTotal=2;
+  repeated ConversationElem conversationElems=3;
+
+}
+
+message ConversationElem {
+  string conversationID=1;
+  int32 recvMsgOpt=2;
+  int64 unreadCount = 3;
+  bool IsPinned=4;
+  MsgInfo msgInfo=5;
+
+}
+
+message MsgInfo{
+  string serverMsgID = 1;
+  string clientMsgID = 2;
+  int32 sessionType=3;
+  string sendID=4;
+  string recvID=5;
+  string senderName=6;
+  string faceURL=7;
+  string groupID=8;
+  string groupName=9;
+  string groupFaceURL=10;
+  int32 groupType=11;
+  uint32 groupMemberCount=12;
+  int64 LatestMsgRecvTime=13;
+  int32 msgFrom = 14;
+  int32 contentType = 15;
+  string content = 16;
+}
+
+message GetConversationsReq{
+  string ownerUserID = 1;
+  repeated string conversationIDs = 2;
+}
+
+message GetConversationsResp{
+  repeated Conversation conversations = 2;
+}
+
+message GetAllConversationsReq{
+  string ownerUserID = 1;
+}
+
+message GetAllConversationsResp{
+  repeated Conversation conversations = 2;
+}
+
+
+message GetRecvMsgNotNotifyUserIDsReq {
+  string groupID = 1;
+}
+
+message GetRecvMsgNotNotifyUserIDsResp {
+  repeated string userIDs = 1;
+}
+
+message CreateSingleChatConversationsReq {
+  string recvID = 1;
+  string sendID = 2;
+  string conversationID = 3;
+  int32 conversationType = 4;
+}
+
+message CreateSingleChatConversationsResp {
+}
+
+message CreateGroupChatConversationsReq {
+  repeated string userIDs = 1;
+  string groupID = 2;
+}
+
+message CreateGroupChatConversationsResp {
+}
+
+message SetConversationMaxSeqReq {
+  string conversationID = 1;
+  repeated string ownerUserID = 2;
+  int64 maxSeq = 3;
+}
+
+message SetConversationMaxSeqResp {
+}
+
+message GetConversationIDsReq {
+  string userID = 1;
+}
+
+message GetConversationIDsResp {
+  repeated string conversationIDs = 1;
+}
+
+
+
+message SetConversationsReq {
+  repeated string userIDs = 1;
+  ConversationReq conversation = 2;
+}
+
+message SetConversationsResp {
+}
+
+message GetUserConversationIDsHashReq {
+  string ownerUserID = 1;
+}
+
+message GetUserConversationIDsHashResp {
+  uint64 hash = 1;
+}
+
+message GetConversationsByConversationIDReq {
+  repeated string conversationIDs = 1;
+}
+
+message GetConversationsByConversationIDResp {
+  repeated Conversation conversations = 1;
+}
+
+message GetConversationOfflinePushUserIDsReq {
+  string conversationID = 1;
+  repeated string userIDs = 2;
+}
+
+message GetConversationOfflinePushUserIDsResp {
+  repeated string userIDs = 1;
+}
+
+service conversation {
+  rpc GetConversation(GetConversationReq)returns(GetConversationResp);
+  rpc GetSortedConversationList(GetSortedConversationListReq)returns(GetSortedConversationListResp);
+  rpc GetAllConversations(GetAllConversationsReq)returns(GetAllConversationsResp);
+  rpc GetConversations(GetConversationsReq)returns(GetConversationsResp);
+  rpc SetConversation(SetConversationReq)returns(SetConversationResp);
+  rpc GetRecvMsgNotNotifyUserIDs(GetRecvMsgNotNotifyUserIDsReq) returns (GetRecvMsgNotNotifyUserIDsResp);
+  rpc CreateSingleChatConversations(CreateSingleChatConversationsReq) returns (CreateSingleChatConversationsResp);
+  rpc CreateGroupChatConversations(CreateGroupChatConversationsReq) returns (CreateGroupChatConversationsResp);
+  rpc SetConversationMaxSeq(SetConversationMaxSeqReq) returns(SetConversationMaxSeqResp);
+  rpc GetConversationIDs(GetConversationIDsReq) returns(GetConversationIDsResp);
+  rpc SetConversations(SetConversationsReq) returns(SetConversationsResp);
+  rpc GetUserConversationIDsHash(GetUserConversationIDsHashReq) returns(GetUserConversationIDsHashResp);
+  rpc GetConversationsByConversationID(GetConversationsByConversationIDReq) returns(GetConversationsByConversationIDResp);
+  rpc GetConversationOfflinePushUserIDs(GetConversationOfflinePushUserIDsReq) returns(GetConversationOfflinePushUserIDsResp);
+}

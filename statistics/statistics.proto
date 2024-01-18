@@ -1,0 +1,4 @@
+syntax = "proto3";
+package PanguIMServer.statistics;
+option go_package = "protocol/statistics";
+
